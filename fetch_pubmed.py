@@ -57,6 +57,7 @@ def fetch_papers(query, num_of_articles=5, debug=False):
     company_affiliations_dict = {}
     corresponding_emails_dict = {}
 
+
     for pmid in pmids:
         article = fetch.article_by_pmid(pmid)
         articles[pmid] = article  
@@ -89,7 +90,6 @@ def fetch_papers(query, num_of_articles=5, debug=False):
 
     return (articles, titles, abstracts, authors, years, volumes, issues, journals, citations, links, 
             non_academic_authors_dict, company_affiliations_dict, corresponding_emails_dict)
-
 # Function to save data to CSV
 def save_to_csv(filename, articles, titles, abstracts, authors, years, volumes, issues, journals, citations, links, non_academic_authors, company_affiliations, corresponding_emails):
     df_title = pd.DataFrame(list(titles.items()), columns=["pmid", "Title"])
@@ -129,4 +129,3 @@ def main():
 # Run the script
 if __name__ == "__main__":
     main()
-

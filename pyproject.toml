@@ -1,18 +1,20 @@
-[project]
+[tool.poetry]
 name = "pubmed-project"
 version = "0.1.0"
 description = "Fetch PubMed research papers"
-authors = [
-    {name = "Roshitha",email = "76120346+roshitapatnaik@users.noreply.github.com"}
-]
+authors = ["Roshitha <76120346+roshitapatnaik@users.noreply.github.com>"]
 readme = "README.md"
-requires-python = ">=3.11"
-dependencies = [
-    "metapub (>=0.5.12,<0.6.0)",
-    "pandas (>=2.2.3,<3.0.0)"
-]
+packages = [{include = "fetch_pubmed.py"}]
 
+[tool.poetry.dependencies]
+python = ">=3.11"
+metapub = ">=0.5.12,<0.6.0"
+pandas = ">=2.2.3,<3.0.0"
 
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+get-papers-list = "fetch_pubmed:main"
+
